@@ -27,3 +27,23 @@ def get_hotels(lat: float = Query(...), lng: float = Query(...), radius: int = Q
     }
     response = requests.get(url, params=params)
     return response.json()
+
+
+import os
+import requests
+from fastapi import Query
+
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
+
+@app.get("/youtube_search")
+def youtube_search(q: str = Query(...), max_results: int = 3):
+    url = "https://www.googleapis.com/youtube/v3/search"
+    params = {
+        "part": "snippet",
+        "q": q,
+        "type": "video",
+        "maxResults": max_results,
+        "key": YOUTUBE_API_KEY
+    }
+    response = requests.get(url, params=params)
+    return response.json()
