@@ -7,7 +7,7 @@ app = FastAPI(
     version="1.0.0",
     openapi_url="/openapi.json",
     servers=[
-        {"url": "https://rakuten-fastapi.onrender.com", "description": "Render deployment"}
+        {"url": "https://chadult-backend.onrender.com", "description": "Render deployment"}
     ]
 )
 
